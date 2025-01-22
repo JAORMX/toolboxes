@@ -22,7 +22,7 @@ RUN dnf install -y \
 	gcc-c++ \
 	python
 
-RUN gh --repo gh-cli
+RUN dnf install -y gh --repo gh-cli
 
 # Install global NPM packages
 RUN npm install -g \
