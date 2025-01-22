@@ -17,4 +17,4 @@ RUN dnf install -y \
 	docker-compose-plugin \
 	poetry
 
-RUN sudo dnf install -y gh --repo gh-cli
+RUN dnf install -y gh --repo gh-cli
