@@ -14,6 +14,7 @@ RUN dnf install -y \
 	jq \
 	podman \
 	docker \
-	docker-compose-plugin
+	docker-compose-plugin \
+	poetry
 
 RUN sudo dnf install -y gh --repo gh-cli
