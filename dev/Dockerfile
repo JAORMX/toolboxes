@@ -6,7 +6,7 @@ RUN dnf install -y \
 RUN dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
 RUN dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
 
-RUN dnf install -y \
+RUN dnf install -y --skip-unavailable \
 	fish \
 	neovim \
 	golang \

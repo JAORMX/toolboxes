@@ -10,7 +10,7 @@ RUN dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/r
 RUN dnf install -y nodejs npm
 
 # Install common development tools and Node.js specific tools
-RUN dnf install -y \
+RUN dnf install -y  --skip-unavailable \
 	fish \
 	neovim \
 	jq \
