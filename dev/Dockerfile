@@ -3,8 +3,15 @@ FROM registry.fedoraproject.org/fedora-toolbox:42
 RUN dnf install -y \
 	dnf-plugins-core
 
-RUN dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
+# Add Docker CE repository and exclude conflicting packages from Fedora repos
+RUN dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo && \
+    echo "exclude=docker*" >> /etc/yum.repos.d/fedora.repo && \
+    echo "exclude=docker*" >> /etc/yum.repos.d/fedora-updates.repo
+
 RUN dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
+
+# Run distro-sync to ensure we have the latest package info
+RUN dnf -y distro-sync --refresh
 
 RUN dnf install -y --skip-unavailable \
 	fish \
@@ -13,7 +20,9 @@ RUN dnf install -y --skip-unavailable \
 	go-task \
 	jq \
 	podman \
-	docker \
+	docker-ce \
+	docker-ce-cli \
+	docker-buildx-plugin \
 	docker-compose-plugin \
 	poetry
 
