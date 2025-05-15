@@ -8,6 +8,8 @@ on:
   schedule:
     # Run weekly
     - cron: '0 0 * * 0'
+  # Manually triggered
+  workflow_dispatch:
 
 jobs:
   image:
