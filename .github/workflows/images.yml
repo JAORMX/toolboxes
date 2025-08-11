@@ -81,7 +81,7 @@ jobs:
           echo "digest=$(docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/${{ env.IMAGE_NAME_BASE }}${{ matrix.toolbox }}:${{ steps.version-string.outputs.tag }})" >> "$GITHUB_OUTPUT"
 
       - name: Install cosign
-        uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac # v3.9.1
+        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 # v3.9.2
 
       - name: Sign the images with GitHub OIDC Token
         env:
