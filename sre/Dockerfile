@@ -1,9 +1,7 @@
 FROM registry.fedoraproject.org/fedora-toolbox:43
 
 RUN dnf install -y \
-	dnf-plugins-core
-
-RUN dnf install -y \
+	dnf-plugins-core \
 	fish \
 	neovim \
 	jq \
@@ -11,4 +9,5 @@ RUN dnf install -y \
 	opentofu \
 	awscli2 \
 	kubernetes-client \
-	fzf
+	fzf && \
+    dnf clean all

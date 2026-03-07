@@ -5,6 +5,9 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "docker"
-    directory: "/"
+    directories:
+      - "/dev"
+      - "/node-dev"
+      - "/sre"
     schedule:
       interval: "weekly"
