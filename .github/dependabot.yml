@@ -11,3 +11,6 @@ updates:
       - "/sre"
     schedule:
       interval: "weekly"
+    ignore:
+      - dependency-name: "registry.fedoraproject.org/fedora-toolbox"
+        update-types: ["version-update:semver-major"]
